@@ -90,7 +90,7 @@ To get started with the project, follow these steps:
    ```
 
 
-## **Results**
+## **Accuracy**
 
 ![accuracy](accuracy.jpg)
 
