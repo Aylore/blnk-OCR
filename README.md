@@ -74,9 +74,11 @@ To get started with the project, follow these steps:
 
     The images were resized to 50 * 200
     I extracted the text only in new images with all black background but seemed to confuse the model for some reason
-   
 
-3. ### Django Integration
+3. ### Training
+   A CRNN (CNN + RNN )  model for used for seuquence generation   
+
+4. ### Django Integration
    
    After training I used django to create and easy to use *not too fancy* GUI.
 
