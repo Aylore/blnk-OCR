@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<fieldset>
+    <legend>OCR</legend>
+
+
+    <body>
+        
+
+        <!-- Upload File -->
+        <h1>OCR </h1>
+
+        <form id="transcriptionForm" action="{% url 'predict' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">Upload image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required><br>
+            <input type="submit" value="predict" id="transcribeButton">
+        </form>
+
+        <textarea rows="4">{{ prediction }}</textarea>
+
+        
+    </body>
+
+
+
+</fieldset>

@@ -50,3 +50,20 @@ class OCRDataset(Dataset):
     
     def transform(self, img) -> torch.Tensor:
         return self.list_transforms(img)
+    
+    def whiten_text(self , image):
+    # Get the width and height of the image
+        width, height = image.size
+
+        # Define the threshold for what you consider "black." This can vary depending on your image.
+        # Here, we'll consider any pixel with an RGB value less than (50, 50, 50) as black.
+        black_threshold = (50, 50, 50)
+
+        # Iterate through each pixel and set non-black pixels to (255, 255, 255)
+        for x in range(width):
+            for y in range(height):
+                pixel = image.getpixel((x, y))
+                if pixel >= black_threshold:
+                    image.putpixel((x, y), (255, 255, 255))
+
+        return image
