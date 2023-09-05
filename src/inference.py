@@ -42,10 +42,7 @@ def print_prediction(model, img, device, label_converter):
     # plt.title(title)
     # plt.axis('off');
 
-
-def infer(img):
-
-
+def load_model():
     model = CRNN(hidden_size=hidden_size, vocab_size=vocab_size, 
             bidirectional=bidirectional, dropout=dropout).to(device)
 
@@ -55,6 +52,15 @@ def infer(img):
         model.load_state_dict(torch.load(weights_path))
     else:
         model.load_state_dict(torch.load(weights_path , map_location=torch.device('cpu')) )
+
+    return model
+
+
+
+def infer(img):
+
+
+    model =load_model()
 
 
     image = process_image(img)
